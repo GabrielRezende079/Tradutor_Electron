@@ -1,4 +1,4 @@
-# 🌍 Tradutor Desktop (Electron e Langchain)
+# 🌍 Tradutor Desktop com IA (Electron e Langchain)
 
 Um aplicativo desktop simples de tradução, desenvolvido com **Langchain**, **Electron**, **HTML**, **CSS** e **JavaScript**.  
 Ele permite que o usuário digite um texto, clique em **Traduzir**, e visualize o resultado traduzido.
