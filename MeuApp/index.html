@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Tradutor com IA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌐 Tradutor com IA</h1>
+    <div class="inputs">
+      <input id="texto" type="text" placeholder="Frase">
+      <input id="lingua" type="text" placeholder="Língua">
+      <button id="btn">Traduzir</button>
+    </div>
+    <p id="saida"></p>
+  </div>
+
+  <script>
+    document.getElementById("btn").addEventListener("click", async () => {
+      const texto = document.getElementById("texto").value;
+      const lingua = document.getElementById("lingua").value;
+
+      const resposta = await window.api.traduzir(texto, lingua);
+      document.getElementById("saida").innerText = resposta;
+    });
+  </script>
+</body>
+</html>

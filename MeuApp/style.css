@@ -1,0 +1,370 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+/* Variáveis CSS para fácil customização */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(145deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.1);
+  --input-border: rgba(255, 255, 255, 0.2);
+  --button-gradient: linear-gradient(145deg, #00d4ff, #1e40af);
+  --button-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.3);
+  --border-radius: 16px;
+  --border-radius-lg: 20px;
+}
+
+body {
+  background: var(--secondary-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Efeito de fundo animado */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  animation: backgroundShift 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes backgroundShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.container {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-strong);
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    var(--shadow-strong),
+    0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff, #e2e8f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.inputs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+input {
+  flex: 1;
+  min-width: 120px;
+  padding: 14px 16px;
+  background: var(--input-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--input-border);
+  border-radius: var(--border-radius);
+  outline: none;
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+button {
+  padding: 14px 24px;
+  background: var(--button-gradient);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-width: 100px;
+  box-shadow: var(--button-shadow);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.4);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#saida {
+  margin-top: 20px;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  min-height: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#saida:not(:empty) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  animation: fadeInResult 0.5s ease-out;
+}
+
+@keyframes fadeInResult {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade Completa */
+/* Tablets e telas médias */
+@media (max-width: 768px) {
+  .container {
+    padding: 35px 25px;
+    max-width: 500px;
+    margin: 15px;
+  }
+  
+  h1 {
+    font-size: 26px;
+    margin-bottom: 25px;
+  }
+  
+  input, button {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  #saida {
+    font-size: 16px;
+    padding: 14px;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .container {
+    padding: 25px 20px;
+    margin: 5px;
+    max-width: 100%;
+    min-width: 280px;
+  }
+  
+  .inputs {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input, button {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px; /* Evita zoom no iOS */
+    border-radius: 12px;
+  }
+  
+  button {
+    font-weight: 700;
+    min-height: 50px;
+  }
+  
+  h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  #saida {
+    font-size: 15px;
+    padding: 16px;
+    min-height: 60px;
+  }
+}
+
+/* Smartphones pequenos */
+@media (max-width: 320px) {
+  .container {
+    padding: 20px 15px;
+  }
+  
+  h1 {
+    font-size: 20px;
+  }
+  
+  input, button {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* Telas grandes */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 500px;
+    padding: 50px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin-bottom: 35px;
+  }
+  
+  input, button {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+  
+  #saida {
+    font-size: 20px;
+    padding: 20px;
+  }
+}
+
+/* Orientação paisagem em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .container {
+    margin-top: 10px;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .inputs {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  input, button {
+    padding: 10px;
+  }
+}
+
+/* Scroll suave para elementos que podem ter overflow */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
