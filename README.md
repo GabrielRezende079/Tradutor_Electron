@@ -1,6 +1,6 @@
-# 🌍 Tradutor Desktop (Electron)
+# 🌍 Tradutor Desktop (Electron e Langchain)
 
-Um aplicativo desktop simples de tradução, desenvolvido com **Electron**, **HTML**, **CSS** e **JavaScript**.  
+Um aplicativo desktop simples de tradução, desenvolvido com **Langchain**, **Electron**, **HTML**, **CSS** e **JavaScript**.  
 Ele permite que o usuário digite um texto, clique em **Traduzir**, e visualize o resultado traduzido.
 
 ---
@@ -8,6 +8,7 @@ Ele permite que o usuário digite um texto, clique em **Traduzir**, e visualize 
 ## 🚀 Tecnologias Utilizadas
 - [Electron](https://www.electronjs.org/) - Framework para criar aplicativos desktop com tecnologias web.
 - HTML5, CSS3 e JavaScript puro.
+- Langchain 
 
 ---
 
