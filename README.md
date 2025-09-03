@@ -26,9 +26,11 @@ tradutor-app/
 ## 🖥️ Como Executar o Projeto
 
 npm init -y
+
 npm install electron
 
 npm init -y
+
 npm install electron langchain @langchain/groq
 
 npm start
